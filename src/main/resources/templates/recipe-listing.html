@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- Dodana przestrzeń nazw th -->
+<html lang="pl"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<body>
+<div class="container">
+    <main class="main-content" layout:fragment="content">
+        <!-- Nagłówek pobieramy z modelu -->
+        <h2 class="list-heading" th:text="${heading}">Promowane przepisy / Nazwa Kategorii</h2>
+        <!-- Opis pobieramy z modelu -->
+        <p class="list-description" th:text="${description}">Opis sekcji, przykładowo opis kategorii, albo strony
+            głównej</p>
+        <!-- Zostawiamy tylko pierwszy element <li> -->
+        <ul class="recipe-list" th:remove="all-but-first">
+            <!-- Pętla po wszystkich filmach z modelu -->
+            <li class="recipe-list-item" th:each="recipe: ${recipes}">
+                <!-- Link do strony pojedynczego pzepisu typu /film/5 -->
+                <a href="#" th:href="@{|/przepis/${recipe.id}|}">
+                    <!-- Po uruchomieniu aplikacji ścieżka do placeholdera plakatu wygląda nieco inaczej -->
+                    <img src="../static/img/poster-placeholder.png"
+                         th:src="${recipe.poster ne null} ? @{|/img/${recipe.poster}|} : @{/img/poster-placeholder.png}"
+                         alt="tytuł filmu"
+                         class="recipe-list-item-poster">
+                </a>
+                <div class="recipe-list-item-card">
+                    <div class="recipe-list-item-content">
+                        <h3 class="recipe-list-item-title">
+                            <!-- Link do strony pojedynczego filmu typu /film/5 -->
+                            <a href="#" th:href="@{|/przepis/${recipe.id}|}" th:text="${recipe.title}">Tytuł filmu</a>
+                        </h3>
+                    </div>
+                    <div class="recipe-list-item-rating">
+                        <i class="fas fa-star"></i>
+                        <span>8.7</span>
+                    </div>
+                </div>
+        </ul>
+    </main>
+</div>
+</body>
+</html>

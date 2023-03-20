@@ -202,7 +202,7 @@ i powinna zajmować większość dostępnej przestrzeni
     }
     /*Styl dla przycisków z ocenami*/
     .recipe-rating-button {
-        background-color: #ffc107;
+        background-color: lightgreen;
         border: 0;
         padding: 4px;
         font-size: 1.6rem;
@@ -234,7 +234,7 @@ i powinna zajmować większość dostępnej przestrzeni
         display: block;
         margin: auto;
     }
-    /*Responsive movie.html*/
+    /*Responsive recipe.html*/
     @media only screen and (min-width: 992px) {
         /*Dodajemy rozkład elastyczny, elementy będą wyświetlane w jednym wierszu*/
         .recipe {
@@ -251,5 +251,91 @@ i powinna zajmować większość dostępnej przestrzeni
             font-size: 1.2rem;
             margin: 0 4px;
         }
+    }
+    /*error pages START*/
+    .error-container {
+        margin: 32px auto;
+    }
+    .error-container > * {
+        display: block;
+        text-align: center;
+    }
+    .error-header,
+    .error-icon {
+        font-size: 2rem;
+        margin: 16px 0;
+    }
+    /*error pages END*/
+
+    .list-border {
+        margin: auto;
+        list-style: none;
+    }
+    .list-border > li {
+        font-size: 1.2rem;
+        border: 1px #070606 solid;
+        padding: 16px;
+        text-align: center;
+    }
+
+    /*textarea domyślnie nie dziedziczy czcionki z body*/
+    textarea {
+        font-family: inherit;
+    }
+    /*etykiety i inputy jeden pod drugim z odstępami po bokach*/
+    .mc-form {
+        display: flex;
+        flex-direction: column;
+        margin: 0 32px;
+    }
+    /*odstępy między etykietami i inputami*/
+    .mc-form > * {
+        margin-top: 8px;
+    }
+    /*większe inputy z paddingami*/
+    .mc-form > input,
+    .mc-form > textarea,
+    .mc-form > button {
+        font-size: 1.2rem;
+        color: black;
+        padding: 8px;
+    }
+    .mc-form > button {
+        margin-top: 16px;
+        background-color: white;
+        color: lightgreen;
+        border: none;
+    }
+    .notification-bar {
+        text-align: center;
+        background-color: #ffffff;
+        padding: 8px 0;
+    }
+    .mc-form > input,
+    .mc-form > textarea,
+    .mc-form > button,
+    .mc-form > select { /*dodany selektor*/
+        font-size: 1.2rem;
+        color: black;
+        padding: 8px;
+    }
+    /*Większy checkbox*/
+    .mc-form > input[type=checkbox] {
+        transform: scale(1.5);
+        margin-left: 5px;
+    }
+    /*Biały kolor tekstu przy wyborze pliku*/
+    .mc-form > input[type=file] {
+        color: #070606;
+    }
+    /*Tekst nad formularzem*/
+    .mc-form-message {
+        color: lightgreen;
+        text-align: center;
+    }
+
+    .registration-link {
+        text-align: center;
+        margin-top: 32px;
     }
 }

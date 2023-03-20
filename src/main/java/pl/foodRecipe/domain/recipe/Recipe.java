@@ -1,9 +1,11 @@
-package pl.foodRecipe.recipe;
+package pl.foodRecipe.domain.recipe;
 
-import lombok.*;
-import pl.foodRecipe.category.Category;
+import pl.foodRecipe.domain.category.Category;
 
 import javax.persistence.*;
+
+import lombok.*;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -16,11 +18,15 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+    private String shortDescription;
+    private String description;
+    private String youtubeTrailerId;
 
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
     private boolean promoted;
+    private String poster;
 
 
 }
