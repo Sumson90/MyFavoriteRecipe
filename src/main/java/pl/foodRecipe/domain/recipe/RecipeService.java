@@ -29,17 +29,17 @@ public class RecipeService {
 
     public List<RecipeDto> findAllPromotedRecipes() {
         return recipeRepository.findAllByPromotedIsTrue().stream()
-                .map(RecipeDtoMapper::map)
+                .map(recipe -> RecipeDtoMapper.map(recipe))
                 .toList();
     }
 
     public Optional<RecipeDto> findRecipeById(long id) {
-        return recipeRepository.findById(id).map(RecipeDtoMapper::map);
+        return recipeRepository.findById(id).map(recipe -> RecipeDtoMapper.map(recipe));
     }
 
     public List<RecipeDto> findRecipesByCategoryName(String category) {
         return recipeRepository.findAllByCategory_NameIgnoreCase(category).stream()
-                .map(RecipeDtoMapper::map)
+                .map(recipe -> RecipeDtoMapper.map(recipe))
                 .toList();
     }
 
@@ -61,7 +61,7 @@ public class RecipeService {
     public List<RecipeDto> findTopRecipes(int size) {
         Pageable page = Pageable.ofSize(size);
         return recipeRepository.findTopByRating(page).stream()
-                .map(RecipeDtoMapper::map)
+                .map(recipe -> RecipeDtoMapper.map(recipe))
                 .toList();
     }
 

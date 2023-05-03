@@ -123,7 +123,7 @@ i powinna zajmować większość dostępnej przestrzeni
     .recipe-list {
         list-style-type: none;
     }
-    /*Margines i ramka wokół pojedynczego filmu*/
+    /*Margines i ramka wokół pojedynczego przepis*/
     .recipe-list-item {
         margin-bottom: 16px;
         display: flex;
@@ -134,7 +134,7 @@ i powinna zajmować większość dostępnej przestrzeni
         display: block;
         max-width: 200px;
     }
-    /*Karta filmu*/
+    /*Karta rzepisu*/
     .recipe-list-item-card {
         display: flex;
         flex-direction: column;
@@ -153,7 +153,7 @@ i powinna zajmować większość dostępnej przestrzeni
     /*Listing END*/
 
     /*Movie.html*/
-    /*Informacje o filmie w jednym rzędzie z odstępem od jumbotrona*/
+    /*Informacje o przepisu w jednym rzędzie z odstępem od jumbotrona*/
     .recipe-summary {
         display: flex;
         margin-top: 16px;
@@ -163,7 +163,7 @@ i powinna zajmować większość dostępnej przestrzeni
         object-fit: contain;
         max-width: 200px;
     }
-    /*Odstęp informacji o filmie od okładki*/
+    /*Odstęp informacji o przepisu od okładki*/
     .recipe-summary-info {
         margin-left: 16px;
     }
@@ -176,7 +176,7 @@ i powinna zajmować większość dostępnej przestrzeni
     .recipe-summary-item {
         margin: 8px 0;
     }
-    /*Większy tytuł filmu*/
+    /*Większy tytuł rzepisu*/
     .recipe-summary-title {
         font-size: 2rem;
     }

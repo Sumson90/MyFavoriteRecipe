@@ -5,10 +5,11 @@ import pl.foodRecipe.domain.rating.Rating;
 public class RecipeDtoMapper {
     public static RecipeDto map(Recipe recipe) {
         double avgRating = recipe.getRatings().stream()
-                .map(Rating::getRating)
+                .map(rating -> rating.getRating())
                 .mapToDouble(val -> val)
                 .average().orElse(0);
         int ratingCount = recipe.getRatings().size();
+
         return new RecipeDto(
                 recipe.getId(),
                 recipe.getTitle(),

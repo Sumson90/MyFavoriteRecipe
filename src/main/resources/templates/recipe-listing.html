@@ -14,9 +14,9 @@
             głównej</p>
         <!-- Zostawiamy tylko pierwszy element <li> -->
         <ul class="recipe-list" th:remove="all-but-first">
-            <!-- Pętla po wszystkich filmach z modelu -->
+            <!-- Pętla po wszystkich przepisach z modelu -->
             <li class="recipe-list-item" th:each="recipe: ${recipes}">
-                <!-- Link do strony pojedynczego pzepisu typu /film/5 -->
+                <!-- Link do strony pojedynczego pzepisu typu /przepisu/5 -->
                 <a href="#" th:href="@{|/przepis/${recipe.id}|}">
                     <!-- Po uruchomieniu aplikacji ścieżka do placeholdera plakatu wygląda nieco inaczej -->
                     <img src="../static/img/poster-placeholder.png"
@@ -27,7 +27,7 @@
                 <div class="recipe-list-item-card">
                     <div class="recipe-list-item-content">
                         <h3 class="recipe-list-item-title">
-                            <!-- Link do strony pojedynczego filmu typu /film/5 -->
+                            <!-- Link do strony pojedynczego przepisu typu /przepis/5 -->
                             <a href="#" th:href="@{|/przepis/${recipe.id}|}" th:text="${recipe.title}">Tytuł przepisu</a>
                         </h3>
                     </div>
