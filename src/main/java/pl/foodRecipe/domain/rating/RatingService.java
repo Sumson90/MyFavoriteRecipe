@@ -20,7 +20,7 @@ public class RatingService {
 
     public void addOrUpdateRating(String userEmail, long recipeId, int rating) {
         Rating ratingToSaveOrUpdate = ratingRepository.findByUser_EmailAndRecipe_Id(userEmail, recipeId)
-                .orElseGet(Rating::new);
+                .orElseGet(() -> new Rating());
         User user = userRepository.findByEmail(userEmail).orElseThrow();
         Recipe recipe = recipeRepository.findById(recipeId).orElseThrow();
         ratingToSaveOrUpdate.setUser(user);
@@ -31,6 +31,6 @@ public class RatingService {
 
     public Optional<Integer> getUserRatingForRecipe(String userEmail, long recipeId) {
         return ratingRepository.findByUser_EmailAndRecipe_Id(userEmail, recipeId)
-                .map(Rating::getRating);
+                .map(rating -> rating.getRating());
     }
 }

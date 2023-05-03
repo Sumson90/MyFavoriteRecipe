@@ -6,6 +6,7 @@ import pl.foodRecipe.domain.category.dto.CategoryDto;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @Service
@@ -22,9 +23,9 @@ public class CategoryService {
     }
 
     public List<CategoryDto> findAllCategories() {
-        return StreamSupport.stream(categoryRepository.findAll().spliterator(), false)
+        return categoryRepository.findAll().stream()
                 .map(CategoryDtoMapper::map)
-                .toList();
+                .collect(Collectors.toList());
     }
 
     @Transactional
