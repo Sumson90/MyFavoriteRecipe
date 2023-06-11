@@ -1,15 +1,10 @@
 package pl.foodRecipe.domain.user;
 
-import lombok.*;
-
+import lombok.Data;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
 @Table(name = "users")
 public class User {

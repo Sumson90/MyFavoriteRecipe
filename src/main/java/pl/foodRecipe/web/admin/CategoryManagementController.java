@@ -16,7 +16,6 @@ public class CategoryManagementController {
         this.categoryService = categoryService;
     }
 
-
     @GetMapping("/admin/dodaj-kategorie")
     public String addCategoryForm(Model model) {
         CategoryDto category = new CategoryDto();
@@ -32,6 +31,4 @@ public class CategoryManagementController {
                 "Gatunek %s został zapisany".formatted(category.getName()));
         return "redirect:/admin";
     }
-
-
 }

@@ -1,7 +1,6 @@
 package pl.foodRecipe.domain.user;
 
 import pl.foodRecipe.domain.user.dto.UserCredentialsDto;
-
 import java.util.Set;
 import java.util.stream.Collectors;
 

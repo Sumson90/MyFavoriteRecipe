@@ -1,6 +1,7 @@
 package pl.foodRecipe.web;
 
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,16 +14,11 @@ import pl.foodRecipe.domain.recipe.RecipeService;
 import pl.foodRecipe.domain.recipe.dto.RecipeDto;
 
 import java.util.List;
-
+@AllArgsConstructor
 @Controller
 public class CategoryController {
     private final CategoryService categoryService;
     private final RecipeService recipeService ;
-
-    public CategoryController(CategoryService categoryService, RecipeService recipeService ) {
-        this.categoryService = categoryService;
-        this.recipeService = recipeService;
-    }
 
     @GetMapping("/kategoria/{name}")
     public String getCategory(@PathVariable String name, Model model) {
@@ -34,6 +30,7 @@ public class CategoryController {
         model.addAttribute("recipes", recipes);
         return "recipe-listing";
     }
+
     @GetMapping("/kategorie-przepisow")
     public String getCategoriesList(Model model) {
         List<CategoryDto> categories = categoryService.findAllCategories();

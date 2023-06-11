@@ -1,17 +1,12 @@
 package pl.foodRecipe.domain.user;
 
-import lombok.*;
+import lombok.Getter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
-@Setter
-@ToString
 @Entity
 public class UserRole {
     @Id
