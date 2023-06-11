@@ -1,23 +1,21 @@
 package pl.foodRecipe.domain.recipe;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import pl.foodRecipe.domain.category.Category;
-
-import javax.persistence.*;
-
-import lombok.*;
 import pl.foodRecipe.domain.rating.Rating;
-
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-@ToString
 @Entity
 public class Recipe {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,7 +23,6 @@ public class Recipe {
     private String shortDescription;
     private String description;
     private String youtubeTrailerId;
-
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
@@ -33,6 +30,4 @@ public class Recipe {
     private Set<Rating> ratings = new HashSet<>();
     private boolean promoted;
     private String poster;
-
-
 }

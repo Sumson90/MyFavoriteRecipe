@@ -1,16 +1,13 @@
 package pl.foodRecipe.domain.rating;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 import pl.foodRecipe.domain.recipe.Recipe;
 import pl.foodRecipe.domain.user.User;
-
 import javax.persistence.*;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
-@ToString
 @Entity
 @Table(name = "recipe_rating")
 public class Rating {

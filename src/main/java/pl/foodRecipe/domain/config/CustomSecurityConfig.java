@@ -10,8 +10,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import static org.springframework.security.config.Customizer.withDefaults;
-
 @Configuration
 public class CustomSecurityConfig {
     private static final String USER_ROLE = "USER";

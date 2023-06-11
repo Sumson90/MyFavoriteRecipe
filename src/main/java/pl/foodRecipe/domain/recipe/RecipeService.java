@@ -1,5 +1,6 @@
 package pl.foodRecipe.domain.recipe;
 
+import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import pl.foodRecipe.domain.category.Category;
@@ -7,39 +8,29 @@ import pl.foodRecipe.domain.category.CategoryRepository;
 import pl.foodRecipe.domain.recipe.dto.RecipeDto;
 import pl.foodRecipe.domain.recipe.dto.RecipeSaveDto;
 import pl.foodRecipe.storage.FileStorageService;
-
 import java.util.List;
 import java.util.Optional;
 
+@AllArgsConstructor
 @Service
 public class RecipeService {
-
     private final RecipeRepository recipeRepository;
     private final CategoryRepository categoryRepository;
     private final FileStorageService fileStorageService;
 
-    public RecipeService(RecipeRepository recipeRepository,
-                         CategoryRepository categoryRepository,
-                         FileStorageService fileStorageService) {
-        this.recipeRepository = recipeRepository;
-        this.categoryRepository = categoryRepository;
-        this.fileStorageService = fileStorageService;
-    }
-
-
     public List<RecipeDto> findAllPromotedRecipes() {
         return recipeRepository.findAllByPromotedIsTrue().stream()
-                .map(recipe -> RecipeDtoMapper.map(recipe))
+                .map(RecipeDtoMapper::map)
                 .toList();
     }
 
     public Optional<RecipeDto> findRecipeById(long id) {
-        return recipeRepository.findById(id).map(recipe -> RecipeDtoMapper.map(recipe));
+        return recipeRepository.findById(id).map(RecipeDtoMapper::map);
     }
 
     public List<RecipeDto> findRecipesByCategoryName(String category) {
         return recipeRepository.findAllByCategory_NameIgnoreCase(category).stream()
-                .map(recipe -> RecipeDtoMapper.map(recipe))
+                .map(RecipeDtoMapper::map)
                 .toList();
     }
 
@@ -58,13 +49,12 @@ public class RecipeService {
         }
         recipeRepository.save(recipe);
     }
+
     public List<RecipeDto> findTopRecipes(int size) {
         Pageable page = Pageable.ofSize(size);
         return recipeRepository.findTopByRating(page).stream()
-                .map(recipe -> RecipeDtoMapper.map(recipe))
+                .map(RecipeDtoMapper::map)
                 .toList();
     }
-
-
 }
 

@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/przepisy
     username: root
-    password: Sumek2490!!
+    password:
   liquibase:
     contexts: prod
   web:

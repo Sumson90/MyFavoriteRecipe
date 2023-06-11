@@ -1,5 +1,6 @@
 package pl.foodRecipe.web;
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.security.core.Authentication;
@@ -12,16 +13,11 @@ import pl.foodRecipe.domain.recipe.RecipeService;
 import pl.foodRecipe.domain.recipe.dto.RecipeDto;
 
 import java.util.List;
-
+@AllArgsConstructor
 @Controller
 public class RecipeController {
     private final RecipeService recipeService;
     private final RatingService ratingService;
-
-    public RecipeController(RecipeService recipeService, RatingService ratingService) {
-        this.recipeService = recipeService;
-        this.ratingService = ratingService;
-    }
 
     @GetMapping("/przepis/{id}")
     public String getRecipe(@PathVariable long id, Model model, Authentication authentication) {
@@ -33,8 +29,6 @@ public class RecipeController {
             Integer rating = ratingService.getUserRatingForRecipe(currentUserEmail, id).orElse(0);
             model.addAttribute("userRating", rating);
         }
-
-
         return "recipe";
     }
     @GetMapping("/top10")
